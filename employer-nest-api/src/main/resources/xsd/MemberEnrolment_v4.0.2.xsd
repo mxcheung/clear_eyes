@@ -1,0 +1,388 @@
+<!--
+***************************************************************************************************************************
+NEST Message Schema:          MemberEnrolment_v4.0.2.xsd
+Version:                      4.0.2
+Date:                         16-04-2015
+***************************************************************************************************************************
+-->
+<xs:schema 
+	 targetNamespace="http://maxcheung.com/memberenrolment" xmlns="http://maxcheung.com/memberenrolment"
+xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:element name="MemberEnrolment" id="MemberEnrolmentId">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:sequence>
+					<xs:element ref="HeaderRecord" id="HeaderRecordId" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="DetailRecord" id="DetailRecordId" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element ref="TrailerRecord" id="TrailerRecordId" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HeaderRecord" nillable="false" id="HeaderRecordElementId">
+		<xs:annotation>
+			<xs:documentation>Header record identifier-root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="HRecordIdentifier" id="HRecordIdentifier"/>
+				<xs:element ref="NESTEmployerReferenceNumber" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="ProcessType" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HRecordIdentifier" type="xs:string" fixed="H" nillable="false">
+		<xs:annotation>
+			<xs:documentation> Header Record Identifier</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="NESTEmployerReferenceNumber" nillable="false" id="NESTEmployerReferenceNumber">
+		<xs:annotation>
+			<xs:documentation>NEST employer reference number as supplied on completion of the employer set up process and stated in all communications to the employer</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:length value="12"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ProcessType" nillable="false" id="ProcessType">
+		<xs:annotation>
+			<xs:documentation>Process type for the file you send.Our system will identify the task you are
+performing from this field.ME = Member Enrolment and DE = Enrolment Cancellation</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="ME"/>
+				<xs:enumeration value="DE"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="DetailRecord" nillable="false" id="DetailRecord">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:sequence>
+					<xs:element ref="DRecordIdentifier" id="DRecordIdentifier"/>
+					<xs:element ref="Title" id="Title" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="Forename" id="Forename" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="Middlename" id="Middlename" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="Surname" id="Surname" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="DateOfBirth" id="DOB" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="NINumber" id="NINumber" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="IsNINumberUnavailable" id="HoldsNINumber" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="AlternativeUniqueId" id="AlternativeUniqueId" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="Blank" id="blank" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="AddressLine1" id="addLine1" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="AddressLine2" id="addressLine2" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="TownOrCity" id="townorcity" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="County" id="county" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="PostCode" id="postcode" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="CountryName" id="countryname" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="WorkEmailAddress" id="Wmail" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="PersonalEmailAddress" id="Pmail" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="Gender" id="Gender" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="InformationAboutWorkerEnrolmentReceived" id="IAWER" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="EnrolmentType" id="ENRLType" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="Group" id="Grp" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="PaymentSource" id="PS" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="StartDate" id="SDate" minOccurs="0" maxOccurs="1"/>
+					<xs:element ref="IsMemberAnOverseasNationalAwaitinganNINumber" id="ONATIONIN" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DRecordIdentifier" type="xs:string" fixed="D" nillable="false">
+		<xs:annotation>
+			<xs:documentation>Detail Record Identifier</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Title" nillable="true" id="title">
+		<xs:annotation>
+			<xs:documentation>Title of the worker</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Mr"/>
+				<xs:enumeration value="Mrs"/>
+				<xs:enumeration value="Miss"/>
+				<xs:enumeration value="Ms"/>
+				<xs:enumeration value="Dr"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Forename" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Forename of the worker</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="30"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Middlename" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Middle name of the worker</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="30"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Surname" nillable="false">
+		<xs:annotation>
+			<xs:documentation>Surname of the worker</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="30"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="DateOfBirth" nillable="false">
+		<xs:annotation>
+			<xs:documentation>Date of birth of the worker</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:date"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="NINumber" nillable="true">
+		<xs:annotation>
+			<xs:documentation>National Insurance (NI) number of the worker. Refer to the Employer Payroll Guide for details.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="9"/>
+				<xs:pattern value="[A-CEFGHJ-OPR-TW-Z][A-CEGHJ-NPR-TW-Z][0-9]{6}[ABCD]{1}"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="IsNINumberUnavailable" nillable="true">
+		<xs:annotation>
+			<xs:documentation>A declaration from the employer that they don't hold an NI number for this worker</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Y"/>
+				<xs:enumeration value="N"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AlternativeUniqueId" nillable="true">
+		<xs:annotation>
+			<xs:documentation>An alternative unique identifier will be needed if the NI number is not available.Generally this is the worker's payroll number with the current employer.It should be a unique identifier for the worker in your organisation</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="30"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Blank" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Blank field/House number of the correspondence address of the worker.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="10"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AddressLine1" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Address Line1/House name of the correspondence address of the worker.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="80"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AddressLine2" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Address Line2/Street name of the correspondence address of the worker.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="80"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="TownOrCity" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Town/city of the correspondence address of the worker.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="35"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="County" nillable="true">
+		<xs:annotation>
+			<xs:documentation>County of the correspondence address of the worker</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="35"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PostCode" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Postcode of the correspondence address of the worker</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="10"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CountryName" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Country of the correspondence address of the worker</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="50"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="WorkEmailAddress" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Work email address of the worker</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="50"/>
+				<xs:pattern value=".+@.+[.]+.+"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PersonalEmailAddress" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Personal email address of the worker</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="50"/>
+				<xs:pattern value=".+@.+[.]+.+"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Gender" nillable="false">
+		<xs:annotation>
+			<xs:documentation>Gender of the worker</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="M"/>
+				<xs:enumeration value="F"/>
+				<xs:enumeration value="U"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="InformationAboutWorkerEnrolmentReceived" nillable="true">
+		<xs:annotation>
+			<xs:documentation> Here you are confirming you have provided the workers in this file with accurate information about their enrolment and their new pension rights. This is required by law and set out in the NEST employer Terms and Conditions.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Y"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="EnrolmentType" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Enrolment type of the worker that shows whether they are enrolling as a result of automatic enrolment or voluntarily</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="35"/>
+				<xs:enumeration value="AE"/>
+				<xs:enumeration value="WWQE"/>
+				<xs:enumeration value="OPTIN"/>
+				<xs:enumeration value="VOLUNTARY"/>
+				<xs:enumeration value="OTHERS"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Group" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Full name of the group to which the worker belongs. This is optional where you only have one group or you are de-enrolling a worker.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="40"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PaymentSource" nillable="true">
+		<xs:annotation>
+			<xs:documentation>This is the payment source of the worker. Workers may fall under different payment sources or all workers can come under a single payment source. This is optional where you only have one payment source or you are de-enrolling a worker.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="40"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="StartDate" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Date from which the worker's enrolment in NEST is effective.
+This is usually the date the worker becomes or became eligible for automatic enrolment.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:date"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="IsMemberAnOverseasNationalAwaitinganNINumber" nillable="true">
+		<xs:annotation>
+			<xs:documentation>This is a declaration from the employer stating whether or not the member is an overseas national awaiting an NI number.Y-Worker is an overseas national awaiting an NI number and N-Worker is a UK national and has not provided an NI number</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Y"/>
+				<xs:enumeration value="N"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="TrailerRecord" nillable="false">
+		<xs:annotation>
+			<xs:documentation>Trailer record identifier-root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:sequence>
+					<xs:element ref="TRecordIdentifier" id="TRecordIdentifier" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="TotalNumberofMemberRecords" id="TotalNumberofMemberRecords" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="VersionNumber" id="VersionNumber" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TRecordIdentifier" type="xs:string" fixed="T" nillable="false">
+		<xs:annotation>
+			<xs:documentation>Trailer Record Identifier</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="TotalNumberofMemberRecords" nillable="false">
+		<xs:annotation>
+			<xs:documentation>Total number of members to enrol</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:totalDigits value="10"/>
+				<xs:maxInclusive value="9999999999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="VersionNumber" fixed="4" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Version number of the NEST file format u
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

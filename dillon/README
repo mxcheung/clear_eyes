@@ -1,0 +1,19 @@
+clean install tomcat7:run
+
+To retrieve all the existing tags that contains j, make a http GET request to getTags url
+
+curl -X GET  http://localhost:8080/maxcheungWebApp/getTags?tagName=j
+
+
+$ curl -X GET  http://localhost:8080/maxcheungWebApp/getTags?tagName=j
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    88    0    88    0     0   5499      0 --:--:-- --:--:-- --:--:--  5500
+[{"id":6,"tagName":"java"},{"id":7,"tagName":"javascript"},{"id":8,"tagName":"jscript"}]
+
+
+$ curl -X GET  http://localhost:8080/maxcheungWebApp/getTags?tagName=s
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   116    0   116    0     0   3741      0 --:--:-- --:--:-- --:--:--  3741
+[{"id":2,"tagName":"rails"},{"id":7,"tagName":"javascript"},{"id":8,"tagName":"jscript"},{"id":9,"tagName":"scala"}]

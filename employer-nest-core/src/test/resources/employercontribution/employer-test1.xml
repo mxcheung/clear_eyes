@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><EmployerContributionContext xmlns="http://maxcheung.com/employer">
+<EmployerSummary>
+<Surname>Brown</Surname>
+<NINumber>AB010113A</NINumber>
+<EmployerContribution>210.00</EmployerContribution>
+<MemberContribution>161.00</MemberContribution>
+</EmployerSummary>
+<EmployerSummary>
+<Surname>Robinson</Surname>
+<NINumber>AB010109A</NINumber>
+<EmployerContribution>200.00</EmployerContribution>
+<MemberContribution>160.00</MemberContribution>
+</EmployerSummary>
+</EmployerContributionContext>

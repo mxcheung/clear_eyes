@@ -1,0 +1,44 @@
+curl -X GET http://localhost:8080/maxcheungWebApp/hello?name=james
+
+$ curl -X GET  http://localhost:8080/maxcheungWebApp/data?ID=james
+{"someData":"xyz","userAgent":"curl/7.33.0","id":"james"}
+
+
+$ cat request.json
+{"someData":"abc","id":"joe","creditAmt":2.54,"miscAmt":1.23}
+$ curl -XPOST -H 'Content-Type:application/json' -d @request.json http://localhost:8080/maxcheungWebApp/data2
+{"id":"joe","someData":"abc","userAgent":"curl/7.33.0","additionalInfo":"additionalInfo 1234"}
+
+
+$ curl -A "UserAgentString123" -XPOST -H 'Content-Type:application/json' -d @request.json http://localhost:8080/maxcheungWebApp/data2
+{"id":"joe","someData":"abc","userAgent":"UserxxxAgentString123","additionalInfo":"additionalInfo 1234","totalAmt":10}
+
+
+$ cat request.json
+{"someData":"abc","id":"joe","creditAmt":2.54,"miscAmt":1.23}
+$ curl -A "UserxxxAgentString123" -XPOST -H 'Content-Type:application/json' -d @request.json http://localhost:8080/maxcheungWebApp/data2
+{"id":"joe","someData":"abc","userAgent":"UserxxxAgentString123",
+"additionalInfo":"additionalInfo 1234","totalAmt":3.77}
+
+
+$ cat request1.json
+{"someData":"abc","id":"joe","creditAmt":2.54}
+$ curl -A "UserxxxAgentString123" -XPOST -H 'Content-Type:application/json' -d @request1.json http://localhost:8080/maxcheungWebApp/data2
+{"id":"joe","someData":"abc","userAgent":"UserxxxAgentString123",
+"additionalInfo":"additionalInfo 1234","totalAmt":2.54}
+
+
+curl -X GET http://localhost:8080/maxcheungWebApp/hello?name=james
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Spring4 MVC -HelloWorld</title>
+</head>
+<body>
+<h1>Hello : james</h1>
+</body>
+</html>
+
+

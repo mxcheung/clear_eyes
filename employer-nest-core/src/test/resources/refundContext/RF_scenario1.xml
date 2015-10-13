@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RefundContext xmlns="http://maxcheung.com/refund">
+    <RefundEvent>
+        <Event>1</Event>
+        <CTR>CTR1</CTR>
+        <Employer>E1</Employer>
+        <ContribAmount>1200</ContribAmount>
+    </RefundEvent>
+    <RefundEvent>
+        <Event>2</Event>
+        <CTR>CTR1</CTR>
+        <Employer>E2</Employer>
+        <ContribAmount>1000</ContribAmount>
+    </RefundEvent>
+    <RefundEvent>
+        <Event>3</Event>
+        <CTR>CTR1</CTR>
+        <Employer>E3</Employer>
+        <ContribAmount>800</ContribAmount>
+    </RefundEvent>
+    <RefundSummary>
+        <Employer>E1</Employer>
+        <ContribAmount>1200</ContribAmount>
+    </RefundSummary>
+    <RefundSummary>
+        <Employer>E2</Employer>
+        <ContribAmount>1000</ContribAmount>
+    </RefundSummary>
+    <RefundSummary>
+        <Employer>E3</Employer>
+        <ContribAmount>800</ContribAmount>
+    </RefundSummary>
+</RefundContext>
