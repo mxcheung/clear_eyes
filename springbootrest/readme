@@ -1,0 +1,19 @@
+1) Create
+http://localhost:8080/v1/springboot/customer   POST
+{"id":15,"lastname":"jones","firstname":"john"}
+
+
+2) Fetch ... 
+http://localhost:8080/v1/springboot/customer?id=23
+
+
+
+http://localhost:8080/v1/springboot/customer/fetchAll
+
+[{"id":1,"lastname":"Bloggs","firstname":null},{"id":2,"lastname":"Bloggs","firstname":null},{"id":3,"lastname":"Bloggs","firstname":null},{"id":4,"lastname":"Bloggs","firstname":null},{"id":5,"lastname":"Bloggs","firstname":null},{"id":6,"lastname":"Bloggs","firstname":null},{"id":7,"lastname":"Bloggs","firstname":null},{"id":8,"lastname":"Bloggs","firstname":null},{"id":9,"lastname":"Bloggs","firstname":null},{"id":10,"lastname":"Bloggs","firstname":null},{"id":11,"lastname":"Bloggs","firstname":null},{"id":12,"lastname":"Bloggs","firstname":null},{"id":13,"lastname":"Bloggs","firstname":null},{"id":14,"lastname":"Bloggs","firstname":null},{"id":16,"lastname":"Bloggs","firstname":null},{"id":17,"lastname":"jones","firstname":null},{"id":18,"lastname":"wong","firstname":null},{"id":19,"lastname":"Bloggs","firstname":null},{"id":20,"lastname":"Bloggs","firstname":null},{"id":15,"lastname":"jones","firstname":"john"},{"id":21,"lastname":"Bloggs","firstname":null},{"id":22,"lastname":"jones","firstname":"tom"},{"id":23,"lastname":"jones","firstname":"tom"},{"id":24,"lastname":"Bloggs","firstname":null},{"id":25,"lastname":"jones","firstname":"mary"},{"id":26,"lastname":"Bloggs","firstname":null},{"id":27,"lastname":"jones","firstname":"mary"},{"id":28,"lastname":"Bloggs","firstname":null},{"id":29,"lastname":"jones","firstname":"mary"},{"id":30,"lastname":"Bloggs","firstname":null},{"id":31,"lastname":"jones","firstname":"mary"},{"id":32,"lastname":"Bloggs","firstname":null},{"id":33,"lastname":"jones","firstname":"mary"}]
+
+
+
+http://localhost:8080/v1/springboot/customer/fetchbyname?lastname=smxth
+404 Not Found
+{"timestamp":1449307808919,"status":404,"error":"Not Found","exception":"com.maxcheung.rest.CustomerNotFoundException","message":"could not find customer 'smxth'.","path":"/v1/springboot/customer/fetchbyname"}
